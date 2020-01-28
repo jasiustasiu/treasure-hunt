@@ -1,17 +1,13 @@
 package com.github.damianstasiak.recursive
 
-import io.micronaut.http.HttpRequest
-import io.micronaut.http.client.RxHttpClient
-import io.micronaut.http.client.annotation.Client
+
 import io.micronaut.test.annotation.MicronautTest
 import spock.lang.Specification
 
-import javax.inject.Inject
-
 @MicronautTest
-class TreasureHuntServiceSpec extends Specification {
+class TreasureHuntRecursiveServiceSpec extends Specification {
 
-    def service = new TreasureHuntService()
+    def service = new TreasureHuntRecursiveService()
 
     void "test find treasure"() {
         given:
