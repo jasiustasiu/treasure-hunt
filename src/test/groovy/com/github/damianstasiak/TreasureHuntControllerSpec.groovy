@@ -9,7 +9,7 @@ import spock.lang.Specification
 import javax.inject.Inject
 
 @MicronautTest
-class HelloControllerSpec extends Specification {
+class TreasureHuntControllerSpec extends Specification {
 
     @Inject
     @Client("/")
@@ -27,7 +27,7 @@ class HelloControllerSpec extends Specification {
         String rsp = client.toBlocking().retrieve(request)
 
         then:
-        rsp == "Hello World"
+        rsp == ["11"]
     }
 
 //    @Test

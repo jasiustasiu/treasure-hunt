@@ -1,12 +1,13 @@
 package com.github.damianstasiak
 
+import com.github.damianstasiak.oop.Cell
 import groovy.transform.CompileStatic
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 
 @CompileStatic
 @Controller("/hello")
-class HelloController {
+class TreasureHuntController {
 
     @Get("/")
     String hello() {

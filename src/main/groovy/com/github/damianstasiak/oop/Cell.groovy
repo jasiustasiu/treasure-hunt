@@ -1,4 +1,4 @@
-package com.github.damianstasiak
+package com.github.damianstasiak.oop
 
 class Cell {
     private Integer row
