@@ -1,19 +1,16 @@
 package com.github.damianstasiak.oop
 
-class TreasureHuntOOPService {
+import com.github.damianstasiak.TreasureHuntService
 
-    static void main(String[] args) {
-        def input = """55 14 25 52 21
-44 31 11 53 43
-24 13 45 12 34
-42 22 43 32 41
-51 23 33 54 15"""
-        def service = new TreasureHuntOOPService()
-        def path = service.getPathToTreasure(input)
-        print(path)
+import java.util.stream.Collectors
+
+class TreasureHuntOOPService implements TreasureHuntService {
+
+    List<String> getPathToTreasure(String input) {
+        return getPathToTreasureOOP(input).stream().map{ it.toString() }.collect(Collectors.toList())
     }
 
-    Set<Coordinates> getPathToTreasure(String input) {
+    private List<Coordinates> getPathToTreasureOOP(String input) {
         def matrix = [[], [], [], [], []] as Coordinates[][]
         def i = 0
         input.splitEachLine(' ') {
@@ -24,13 +21,13 @@ class TreasureHuntOOPService {
         def nextCoordinates = matrix[coordinates.row][coordinates.column]
 
         while (true) {
-            if (visited.contains(coordinates))
-                return Collections.emptySet()
-            visited.add(coordinates)
-            if (nextCoordinates == coordinates) {
-                return visited
+            if (!visited.add(coordinates)) {
+                return Collections.emptyList()
             }
-            coordinates = Coordinates.fromCoordinates(nextCoordinates)
+            if (coordinates == nextCoordinates) {
+                return visited.toList()
+            }
+            coordinates = Coordinates.from(nextCoordinates)
             nextCoordinates = matrix[nextCoordinates.row][nextCoordinates.column]
         }
     }

@@ -1,6 +1,8 @@
 package com.github.damianstasiak.recursive
 
-class TreasureHuntRecursiveService {
+import com.github.damianstasiak.TreasureHuntService
+
+class TreasureHuntRecursiveService implements TreasureHuntService {
 
     final START_COORDINATES = "11"
 
@@ -14,15 +16,15 @@ class TreasureHuntRecursiveService {
     }
 
     private List<String> getPathToTreasureRecursive(String[][] matrix, String coordinates, Set<String> visited) {
-        if (visited.contains(coordinates))
+        if (!visited.add(coordinates)) {
             return Collections.emptyList()
-        visited.add(coordinates)
+        }
         def row = coordinates[0].toInteger() - 1
         def column = coordinates[1].toInteger() - 1
-        def current = matrix[row][column]
-        if (current == coordinates) {
+        def nextCoordinates = matrix[row][column]
+        if (coordinates == nextCoordinates) {
             return visited.toList()
         }
-        return getPathToTreasureRecursive(matrix, current, visited)
+        return getPathToTreasureRecursive(matrix, nextCoordinates, visited)
     }
 }

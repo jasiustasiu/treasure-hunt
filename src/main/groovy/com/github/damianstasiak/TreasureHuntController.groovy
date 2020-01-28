@@ -6,12 +6,19 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 
 @CompileStatic
-@Controller("/hello")
+@Controller("/treasure-hunt")
 class TreasureHuntController {
 
-    @Get("/")
-    String hello() {
-//        findTreasure("12")
+    def oopService
+    def recursiveService
+
+    @Get("/oop")
+    String oop() {
+        "helo"
+    }
+
+    @Get("/recursive")
+    String recursive() {
         "helo"
     }
 
