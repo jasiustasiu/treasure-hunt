@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: com.github.damianstasiak
+---
+testFramework: spock
+sourceLanguage: groovy
