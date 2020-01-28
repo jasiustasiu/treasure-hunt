@@ -4,15 +4,13 @@ import com.github.damianstasiak.TreasureHuntService
 
 class TreasureHuntRecursiveService implements TreasureHuntService {
 
-    final START_COORDINATES = "11"
-
-    List<String> getPathToTreasure(String input) {
+    List<String> getPathToTreasure(String input, int startRow = 1, int startColumn = 1) {
         def matrix = [[], [], [], [], []] as String[][]
         def i = 0
         input.splitEachLine(' ') {
             matrix[i++] = it
         }
-        return getPathToTreasureRecursive(matrix, START_COORDINATES, new LinkedHashSet<String>())
+        return getPathToTreasureRecursive(matrix, "$startRow$startColumn", new LinkedHashSet<String>())
     }
 
     private List<String> getPathToTreasureRecursive(String[][] matrix, String coordinates, Set<String> visited) {

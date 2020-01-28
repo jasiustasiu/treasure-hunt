@@ -1,15 +1,15 @@
 package com.github.damianstasiak.oop
 
 class Coordinates {
-     Integer row
-     Integer column
+    Integer row
+    Integer column
 
     Coordinates(Integer row, Integer column) {
         this.row = row
         this.column = column
     }
 
-    static START = new Coordinates(0,0)
+    static START = new Coordinates(0, 0)
 
     static Coordinates from(Coordinates coordinates) {
         return new Coordinates(coordinates.row, coordinates.column)
