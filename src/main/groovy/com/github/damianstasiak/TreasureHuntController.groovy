@@ -3,35 +3,32 @@ package com.github.damianstasiak
 
 import com.github.damianstasiak.oop.TreasureHuntOOPService
 import com.github.damianstasiak.recursive.TreasureHuntRecursiveService
-import groovy.transform.CompileStatic
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 
 import javax.inject.Inject
 
-@CompileStatic
 @Controller("/treasure-hunt")
 class TreasureHuntController {
-
     @Inject
-    TreasureHuntOOPService oopService
+    TreasureHuntOOPService treasureHuntOOPService
     @Inject
-    TreasureHuntRecursiveService recursiveService
+    TreasureHuntRecursiveService treasureHuntRecursiveService
 
-    String INPUT = """12 13 14 15 21
-22 23 24 25 31
-32 33 34 35 41
-42 43 44 45 51
-52 53 54 55 11"""
+    String INPUT = """55 14 25 52 21
+44 31 11 53 43
+24 13 45 12 34
+42 22 43 32 41
+51 23 33 54 15"""
 
     @Get("/oop/{row}/{column}")
     String oop(Integer row, Integer column) {
-        return oopService.getPathToTreasure(INPUT, row, column)
+        return treasureHuntOOPService.getPathToTreasure(INPUT, row, column)
     }
 
     @Get("/recursive/{row}/{column}")
     String recursive(Integer row, Integer column) {
-        return recursiveService.getPathToTreasure(INPUT, row, column)
+        return treasureHuntRecursiveService.getPathToTreasure(INPUT, row, column)
     }
 
 }

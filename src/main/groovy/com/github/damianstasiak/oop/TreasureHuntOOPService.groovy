@@ -2,8 +2,10 @@ package com.github.damianstasiak.oop
 
 import com.github.damianstasiak.TreasureHuntService
 
+import javax.inject.Singleton
 import java.util.stream.Collectors
 
+@Singleton
 class TreasureHuntOOPService implements TreasureHuntService {
 
     List<String> getPathToTreasure(String input, int startRow = 1, int startColumn = 1) {

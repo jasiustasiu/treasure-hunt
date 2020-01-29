@@ -2,6 +2,9 @@ package com.github.damianstasiak.recursive
 
 import com.github.damianstasiak.TreasureHuntService
 
+import javax.inject.Singleton
+
+@Singleton
 class TreasureHuntRecursiveService implements TreasureHuntService {
 
     List<String> getPathToTreasure(String input, int startRow = 1, int startColumn = 1) {
