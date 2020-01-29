@@ -7,13 +7,13 @@ import javax.inject.Singleton
 @Singleton
 class TreasureHuntRecursiveService implements TreasureHuntService {
 
-    List<String> getPathToTreasure(String input, int startRow = 1, int startColumn = 1) {
+    List<String> getPathToTreasure(String input, String coordinates = "11") {
         def matrix = [[], [], [], [], []] as String[][]
         def i = 0
         input.splitEachLine(' ') {
             matrix[i++] = it
         }
-        return getPathToTreasureRecursive(matrix, "$startRow$startColumn", new LinkedHashSet<String>())
+        return getPathToTreasureRecursive(matrix, coordinates, new LinkedHashSet<String>())
     }
 
     private List<String> getPathToTreasureRecursive(String[][] matrix, String coordinates, Set<String> visited) {

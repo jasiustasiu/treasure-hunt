@@ -8,8 +8,8 @@ import java.util.stream.Collectors
 @Singleton
 class TreasureHuntOOPService implements TreasureHuntService {
 
-    List<String> getPathToTreasure(String input, int startRow = 1, int startColumn = 1) {
-        return getPathToTreasureOOP(input, new Coordinates(startRow - 1, startColumn - 1)).stream().map { it.toString() }.collect(Collectors.toList())
+    List<String> getPathToTreasure(String input, String coordinates = "11") {
+        return getPathToTreasureOOP(input, Coordinates.from(coordinates)).stream().map { it.toString() }.collect(Collectors.toList())
     }
 
     private List<Coordinates> getPathToTreasureOOP(String input, Coordinates coordinates) {

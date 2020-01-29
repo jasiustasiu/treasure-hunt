@@ -9,10 +9,12 @@ class Coordinates {
         this.column = column
     }
 
-    static START = new Coordinates(0, 0)
-
     static Coordinates from(Coordinates coordinates) {
         return new Coordinates(coordinates.row, coordinates.column)
+    }
+
+    static Coordinates from(String coordinates) {
+        return new Coordinates(coordinates[0].toInteger()-1, coordinates[1].toInteger()-1)
     }
 
     @Override
