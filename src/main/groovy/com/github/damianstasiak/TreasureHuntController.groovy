@@ -22,13 +22,16 @@ class TreasureHuntController {
                   |51 23 33 54 15""".stripMargin()
 
     @Get("/oop/{coordinates}")
-    String oop(String coordinates) {
-        return treasureHuntOOPService.getPathToTreasure(INPUT, coordinates)
+    String getPathOOP(String coordinates) {
+        def path = treasureHuntOOPService.getPathToTreasure(INPUT, coordinates)
+        return path.isEmpty() ? "NO TREASURE" : path.join("\n")
+
     }
 
     @Get("/recursive/{coordinates}")
-    String recursive(String coordinates) {
-        return treasureHuntRecursiveService.getPathToTreasure(INPUT, coordinates)
+    String getPathRecursive(String coordinates) {
+        def path = treasureHuntRecursiveService.getPathToTreasure(INPUT, coordinates)
+        return path.isEmpty() ? "NO TREASURE" : path.join("\n")
     }
 
 }

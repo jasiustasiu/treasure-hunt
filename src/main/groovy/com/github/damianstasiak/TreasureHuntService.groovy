@@ -1,5 +1,5 @@
 package com.github.damianstasiak
 
 interface TreasureHuntService {
-    List<String> getPathToTreasure(String input, String coordinates)
+    List<String> getPathToTreasure(String input, String startCoordinates)
 }
