@@ -1,12 +1,14 @@
-package com.github.damianstasiak
+package com.github.damianstasiak.treasurehunt
 
-
-import com.github.damianstasiak.oop.TreasureHuntOOPService
-import com.github.damianstasiak.recursive.TreasureHuntRecursiveService
+import com.github.damianstasiak.treasurehunt.oop.TreasureHuntOOPService
+import com.github.damianstasiak.treasurehunt.recursive.TreasureHuntRecursiveService
+import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.micronaut.http.annotation.Produces
 
 import javax.inject.Inject
+import javax.inject.Named
 
 @Controller("/treasure-hunt")
 class TreasureHuntController {
@@ -22,6 +24,7 @@ class TreasureHuntController {
                   |51 23 33 54 15""".stripMargin()
 
     @Get("/oop/{coordinates}")
+    @Produces(MediaType.TEXT_PLAIN)
     String getPathOOP(String coordinates) {
         def path = treasureHuntOOPService.getPathToTreasure(INPUT, coordinates)
         return path.isEmpty() ? "NO TREASURE" : path.join("\n")
@@ -29,6 +32,7 @@ class TreasureHuntController {
     }
 
     @Get("/recursive/{coordinates}")
+    @Produces(MediaType.TEXT_PLAIN)
     String getPathRecursive(String coordinates) {
         def path = treasureHuntRecursiveService.getPathToTreasure(INPUT, coordinates)
         return path.isEmpty() ? "NO TREASURE" : path.join("\n")

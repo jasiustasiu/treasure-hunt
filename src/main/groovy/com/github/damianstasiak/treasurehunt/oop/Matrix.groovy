@@ -1,4 +1,4 @@
-package com.github.damianstasiak.oop
+package com.github.damianstasiak.treasurehunt.oop
 
 class Matrix {
 

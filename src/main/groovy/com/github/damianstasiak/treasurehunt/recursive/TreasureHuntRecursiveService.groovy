@@ -1,6 +1,6 @@
-package com.github.damianstasiak.recursive
+package com.github.damianstasiak.treasurehunt.recursive
 
-import com.github.damianstasiak.TreasureHuntService
+import com.github.damianstasiak.treasurehunt.TreasureHuntService
 
 import javax.inject.Singleton
 

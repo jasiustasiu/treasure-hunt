@@ -1,6 +1,6 @@
-package com.github.damianstasiak.oop
+package com.github.damianstasiak.treasurehunt.oop
 
-import com.github.damianstasiak.TreasureHuntService
+import com.github.damianstasiak.treasurehunt.TreasureHuntService
 
 import javax.inject.Singleton
 import java.util.stream.Collectors

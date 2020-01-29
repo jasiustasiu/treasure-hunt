@@ -1,4 +1,4 @@
-package com.github.damianstasiak.recursive
+package com.github.damianstasiak.treasurehunt.recursive
 
 
 import io.micronaut.test.annotation.MicronautTest
@@ -21,6 +21,20 @@ class TreasureHuntRecursiveServiceSpec extends Specification {
 
         then:
         path == ["11", "55", "15", "21", "44", "32", "13", "25", "43"]
+    }
+
+    void "test find treasure in first try"() {
+        given:
+        def input = """55 14 25 52 21
+                      |44 31 11 53 43
+                      |24 13 45 12 34
+                      |42 22 43 32 41
+                      |51 23 33 54 15""".stripMargin()
+        when:
+        def path = service.getPathToTreasure(input, "43")
+
+        then:
+        path == ["43"]
     }
 
     void "test infinite loop"() {
